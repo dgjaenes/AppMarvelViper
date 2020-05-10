@@ -13,10 +13,13 @@ class CharacterReporitoryImplment: CharacterReporitoryProtocol {
     
     static var parametersMarvel = ["ts": "1", "apikey": "596593acfee9dd9dee50fec70e79fdd5", "hash" : "653680c61c9df51c24eda7f2bd53f1bc", "orderBy": "modified"]
     
-    func getCharacters(completion: @escaping (Result<CharactersResponseDO, Error>) -> ()) {
+    func getCharacters(name: String? = nil, completion: @escaping (Result<CharactersResponseDO, Error>) -> ()) {
         let pahtCaracters = "characters"
         var parameters: [String: Any] = CharacterReporitoryImplment.parametersMarvel
         parameters.updateValue("30", forKey: "limit")
+        if let name = name {
+            parameters.updateValue(name, forKey: "name")
+        }
         
         ManagerMarvelRestService.executeRequest(parameters: parameters, paht: pahtCaracters, method: .get , completion: completion)
     }

@@ -9,6 +9,6 @@
 import Foundation
 
 protocol CharacterInteractorProtocol {
-    func getCharacters(completion: @escaping (Result<[CharacterDO], Error>) -> ())
+    func getCharacters(name: String?, completion: @escaping (Result<[CharacterDO], Error>) -> ())
     func getDetailCharacter(id: Int, completion: @escaping (Result<CharacterDO, Error>) -> ())
 }

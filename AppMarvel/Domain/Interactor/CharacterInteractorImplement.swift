@@ -16,8 +16,8 @@ class CharacterInteractorImplement: CharacterInteractorProtocol {
         self.repository = repository
     }
     
-    func getCharacters(completion: @escaping (Result<[CharacterDO], Error>) -> ()) {
-        repository.getCharacters(completion: { (result) in
+    func getCharacters(name: String?, completion: @escaping (Result<[CharacterDO], Error>) -> ()) {
+        repository.getCharacters(name: name, completion: { (result) in
             switch result {
             case .success(let response):
                 var characters: [CharacterDO] = response.data.results

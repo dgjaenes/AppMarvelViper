@@ -32,7 +32,7 @@ class InitPresenter: InitPresenterProtcocol {
     
     private func updateCharacters() {
         
-        interactor?.getCharacters( completion: { (result) in
+        interactor?.getCharacters( name: nil, completion: { (result) in
             switch result {
             case .success(let responsemarvel):
                 self.currentList = responsemarvel.map({CharacteresMarvel(character: $0)})
