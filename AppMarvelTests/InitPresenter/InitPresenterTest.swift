@@ -22,7 +22,7 @@ class InitPresenterTest: XCTestCase {
     func testInitPresenter() {
         let presenter = buildPresenter()
         
-        presenter.interactor?.getCharacters(completion: { (result) in
+        presenter.interactor?.getCharacters(name: nil, completion: { (result) in
             switch result {
             case .success(let responsemarvel):
                 XCTAssertEqual(responsemarvel[0].id, 10)

@@ -18,10 +18,10 @@ class InitRouterStub: InitRouterProtocol {
 }
 
 class CharacterInteractorStub: CharacterInteractorProtocol {
+    
     let charaterDO = CharacterDO(id: 10, name: "TestMarvel", description: "", modified: "", resourceURI: "", urls: [], thumbnail: Image(path: "", ImageExtension: ""), image: nil, comics: Comics(available: 1, returned: 1, collectionURI: "", items: []), stories: Stories(available: 1, returned: 1, collectionURI: "", items: []), events: Comics(available: 1, returned: 1, collectionURI: "", items: []), series: Comics(available: 1, returned: 1, collectionURI: "", items: []))
     
-    func getCharacters(completion: @escaping (Result<[CharacterDO], Error>) -> ()) {
-        
+    func getCharacters(name: String?, completion: @escaping (Result<[CharacterDO], Error>) -> ()) {
         completion(.success([charaterDO]))
     }
     
